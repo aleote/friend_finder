@@ -1,14 +1,16 @@
 // A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
 // A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 
-var  buddies = require("../data/friends.js");
+var buddies = require("../data/friends.js");
 var path = require("path");
-var express = require("express");
+
 
 
 // ===============================================================================
 // ROUTING
 // ===============================================================================
+
+var totalDifference =0;
 
 module.exports = function(app) {
   // API GET Requests
@@ -50,7 +52,7 @@ var userScores = userData.scores;
 var totalDifference = 0;
 
 for (var i = 0; i < [userData].length; i++) {
-	console.log(userData[i].name);
+	// console.log(userData[i].name);
 	totalDifference = 0; 
 
 	console.log(userData);
@@ -67,7 +69,7 @@ for (var j = 0; j < 10; j++) {
 }
 }
 
-buddiesData.push(userData);
+buddies.push(userData);
 
 res.json(exerciseMatch);
 
