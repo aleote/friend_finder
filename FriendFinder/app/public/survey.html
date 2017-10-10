@@ -29,18 +29,18 @@
       <div class="col-lg-6">
 
     <div class="input-group">
-  <span class="input-group-addon" id="sizing-addon2">Q1</span>
-  <input type="text" class="form-control" placeholder="name here" aria-describedby="sizing-addon2">
+  <span class="input-group-addon" id="sizing-addon2">Input</span>
+  <input type="text" id ="name" class="form-control" placeholder="name here" aria-describedby="sizing-addon2">
 </div>
 
 <h3> A link to an image of you: </h3>
 <div class="input-group">
-  <span class="input-group-addon" id="sizing-addon2">Q2</span>
-  <input type="text" class="form-control" placeholder="image here" aria-describedby="sizing-addon2">
+  <span class="input-group-addon" id="sizing-addon2">Input</span>
+  <input type="text" id="photo" class="form-control" placeholder="image here" aria-describedby="sizing-addon2">
 </div>
 
 <h3> Q3: How likely are you to workout outside?</h3>
-<select id="list" onchange="getSelectValue();">
+<select class="list" id="q1">
 <option value="default">Select</option>
 <option value="1">1 (Very Likely)</option>
 <option value="2"> 2</option>
@@ -50,7 +50,7 @@
 </select>
 
  <h3> Q4: How much do you like to run? </h3>
-<select id="list" onchange="getSelectValue();">
+<select class="list" id="q2">
 <option value="default">Select</option>
 <option value="1">1 (Very Likely)</option>
 <option value="2"> 2</option>
@@ -60,7 +60,7 @@
 </select>     
 
 <h3> Q5: How much do you like to lift weights? </h3>
-<select id="list" onchange="getSelectValue();">
+<select class="list" id="q3">
 <option value="default">Select</option>
 <option value="1">1 (Very Likely)</option>
 <option value="2"> 2</option>
@@ -70,7 +70,7 @@
 </select>
 
 <h3> Q6: How much do you like to swim? </h3>
-<select id="list" onchange="getSelectValue();">
+<select class="list" id="q4>
 <option value="default">Select</option>
 <option value="1">1 (Very Likely)</option>
 <option value="2"> 2</option>
@@ -80,7 +80,7 @@
 </select>
 
 <h3> Q7: How much do you like to go to the gym? </h3>
-<select id="list" onchange="getSelectValue();">
+<select class="list" id="q5">
 <option value="default">Select</option>
 <option value="1">1 (Very Likely)</option>
 <option value="2"> 2</option>
@@ -90,7 +90,7 @@
 </select>
 
 <h3> Q8: How likely are you to listen to music while working out? </h3>
-<select id="list" onchange="getSelectValue();">
+<select class="list" id="q6">
 <option value="default">Select</option>
 <option value="1">1 (Very Likely)</option>
 <option value="2"> 2</option>
@@ -100,7 +100,7 @@
 </select>
 
 <h3> Q9: How likely are you to workout in the morning? </h3>
-<select id="list" onchange="getSelectValue();">
+<select class="list" id="q7">
 <option value="default">Select</option>
 <option value="1">1 (Very Likely)</option>
 <option value="2"> 2</option>
@@ -109,8 +109,8 @@
 <option value="5">5 (Very Likely)</option>
 </select>
 
-<h3> Q10: How likely are you to workout at night? </h3>
-<select id="list" onchange="getSelectValue();">
+<h3> Q10: How likely are you to skip a workout because of bad weather? </h3>
+<select class="list" id="q8">
 <option value="default">Select</option>
 <option value="1">1 (Very Likely)</option>
 <option value="2"> 2</option>
@@ -118,22 +118,138 @@
 <option value="4">4 </option>
 <option value="5">5 (Very Likely)</option>
 </select>
-<script>
-function getSelectValue() {
-  var selectValue=documnet.getElementById("list").value;
 
-}
-</script>
+<h3> Q9: How  likely are you to exercise for more than an hour? </h3>
+<select class="list" id="q9">
+<option value="default">Select</option>
+<option value="1">1 (Very Likely)</option>
+<option value="2"> 2</option>
+<option value="3"> 3</option>
+<option value="4">4 </option>
+<option value="5">5 (Very Likely)</option>
+</select>
+
+<h3> Q12: How likely are you to workout at night? </h3>
+<select class="list" id="q10">
+<option value="default">Select</option>
+<option value="1">1 (Very Likely)</option>
+<option value="2"> 2</option>
+<option value="3"> 3</option>
+<option value="4">4 </option>
+<option value="5">5 (Very Likely)</option>
+</select>
 
 
-<!--       <a href="reservations.html"><button type="button" class="btn btn-danger btn-lg"></span> <i class="glyphicon glyphicon-pencil"></i>Go to Survey</button></a>
+<br><br>
+
+     <button type="submit" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#resultsModal" id="submit"></span> <i class="glyphicon glyphicon-pencil"></i>Go to Results</button></a>
     </div>
     <div class="row">
+    //toggle modle and target 
 
-   
-    </div> -->
+
+<footer class="footer">
+  <div class="container">
+    <p><a href="/api/buddies"> API Friends List </a> | <a href="#"> Github Repo </a></p>   
+    </div>
+  </footer>
   </div>
+
+
+
+
+
+
+
+<!-- Modal -->
+  <div id="resultsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title"><strong>Best Match</strong></h2>
+        </div>
+        <div class="modal-body">
+          <h2 id="matchName"></h2>
+          <img id="matchImg">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- //This section sends form data to our server -->
+
+  <script type="text/javascript">
+    // // Chosen CSS
+    // var config = {
+    //   '.chosen-select'           : {},
+    //   '.chosen-select-deselect'  : {allow_single_deselect:true},
+    //   '.chosen-select-no-single' : {disable_search_threshold:10},
+    //   '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+    //   '.chosen-select-width'     : {width:"95%"}
+    // }
+    // for (var selector in config) {
+    //   $(selector).chosen(config[selector]);
+    // }
+    // Capture the form inputs 
+    $("#submit").on("click", function(){
+      // Form validation
+      function validateForm() {
+      var isValid = true;
+      $('.form-control').each(function() {
+        if ( $(this).val() === '' )
+            isValid = false;
+      });
+      $('.chosen-select').each(function() {
+        if( $(this).val() === "")
+          isValid = false
+      })
+      return isValid;
+    }
+    // If all required fields are filled
+    if (validateForm() == true)
+    {
+      // Create an object for the user's data
+        var userData = {
+          name: $("#name").val(),
+          photo: $("#photo").val(),
+          scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
+        }
+        // Grab the URL of the website
+        var currentURL = window.location.origin;
+        // AJAX post the data to the friends API. 
+        $.post(currentURL + "/api/buddies", userData, function(data){
+          // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+          $("#matchName").text(data.name);
+          $('#matchImg').attr("src", data.photo);
+          // Show the modal with the best match 
+          $("#resultsModal").modal('show');
+          // console.log("user data:" userData);
+          // console.log("name:" data.name);
+        });
+    }
+    else
+    {
+      alert("Please fill out all fields before submitting!");
+    }
+      
+      return false;
+    });
+  </script>
 
 
 </body>
 </html>
+
+
+
+
+
+
+
