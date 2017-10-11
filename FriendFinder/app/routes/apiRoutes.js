@@ -39,10 +39,11 @@ module.exports = function(app) {
     // req.body is available since we're using the body-parser middleware
  
  // FILL THIS IN! 
-var exerciseMatch = {
-	name: "",
-	image: "",
-	matchDifference: 1000
+var newBuddy = {
+	name: req.body.name,
+	image: req.body.photo,
+	scores: req.body.scores,
+	
 };
 
 var userData = req.body;
@@ -51,27 +52,33 @@ var userImage = userData.image;
 var userScores = userData.scores;
 var totalDifference = 0;
 
-for (var i = 0; i < [userData].length; i++) {
-	// console.log(userData[i].name);
-	totalDifference = 0; 
+buddies.push(newBuddy);
 
-	console.log(userData);
+var newArr = []; //store all differences
+var newMatch;
+var previousScore = 0;
 
+for (var i = 0; i < buddies.length; i++) {  //loop through outer array (buddies)
+	var totalDifference = 0;
 
-for (var j = 0; j < 10; j++) {
-	totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(buddies[i].scores[j]));
-	if (totalDifference <= exerciseMatch.friendDifference){
+	for (var j = 0; j < buddies[i].scores.length; j++) {	//loop through inner array (scores)
 
-		exerciseMatch.name = buddies[i].name;
-		exerciseMatch.photo = buddies[i].photo;
-		exerciseMatch.matchDifference = totalDifference;
+		var eachDifference = Math.abs(parseInt(buddies[buddies.length - 1].scores[j] - parseInt(buddies[i].scores[j])));
+		totalDifference += eachDifference;
+		
+	}
+
+	newArr.push(totalDifference);
+
+	if(totalDifference >= previousScore){
+		newMatch = buddies[i];
+		previousScore = totalDifference;
+		console.log('New Match: ' + newMatch.name)
 	}
 }
-}
 
-buddies.push(userData);
 
-res.json(exerciseMatch);
+res.json(newMatch);
 
   });
 

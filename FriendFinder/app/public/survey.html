@@ -26,11 +26,11 @@
 
    <div class="row">
 
-      <div class="col-lg-6">
+      <div class="col-lg-12">
 
     <div class="input-group">
   <span class="input-group-addon" id="sizing-addon2">Input</span>
-  <input type="text" id ="name" class="form-control" placeholder="name here" aria-describedby="sizing-addon2">
+  <input type="text" id ="name" class="form-control" placeholder="name here" aria-describedby="sizing-addon2" >
 </div>
 
 <h3> A link to an image of you: </h3>
@@ -70,7 +70,7 @@
 </select>
 
 <h3> Q6: How much do you like to swim? </h3>
-<select class="list" id="q4>
+<select class="list" id="q4">
 <option value="default">Select</option>
 <option value="1">1 (Very Likely)</option>
 <option value="2"> 2</option>
@@ -144,16 +144,20 @@
 
      <button type="submit" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#resultsModal" id="submit"></span> <i class="glyphicon glyphicon-pencil"></i>Go to Results</button></a>
     </div>
-    <div class="row">
-    //toggle modle and target 
+
+
+
+
+
+
 
 
 <footer class="footer">
   <div class="container">
-    <p><a href="/api/buddies"> API Friends List </a> | <a href="#"> Github Repo </a></p>   
+    <p><a href="/api/buddies"> API Friends List </a> | <a href="https://github.com/aleote/friend_finder"> Github Repo </a></p>   
     </div>
   </footer>
-  </div>
+
 
 
 
@@ -173,7 +177,7 @@
         </div>
         <div class="modal-body">
           <h2 id="matchName"></h2>
-          <img id="matchImg">
+          <img id="matchImg" width=500px alt="image">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -229,7 +233,7 @@
           $("#matchName").text(data.name);
           $('#matchImg').attr("src", data.photo);
           // Show the modal with the best match 
-          $("#resultsModal").modal('show');
+          $("#resultsModal").modal('toggle');
           // console.log("user data:" userData);
           // console.log("name:" data.name);
         });
